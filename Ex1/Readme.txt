@@ -1,6 +1,6 @@
 when start ?
 open terminal 
-start :./BasicCheck <path> <.cpp> 
+start :./BasicCheck <path> <.out> 
 
 Requiers:
 - .cpp
