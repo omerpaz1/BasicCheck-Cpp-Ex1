@@ -3,5 +3,5 @@ open terminal
 start :./BasicCheck <path> <.out> 
 
 Requiers:
-- .cpp
+- .out (after compile .cpp file)
 - MakeFile
