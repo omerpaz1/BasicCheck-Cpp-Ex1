@@ -1,5 +1,4 @@
 #!/bin/bash
-fileTest=./makefile
 folderName=$1
 execute=$2
 noneed=$3
