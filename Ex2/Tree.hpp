@@ -1,6 +1,13 @@
 #include <iostream>
-#include "Node.hpp"
 using namespace std;
+
+    struct Node
+    {
+        int data;
+        Node* left;
+        Node* right;
+    };
+
 
 namespace ariel{
 
@@ -8,6 +15,7 @@ namespace ariel{
         public:
         //Tree();
         void insert(int);
+        void disp();
 
 //////////// Private Methods \\\\\\\\\\\
     private:
@@ -17,5 +25,6 @@ namespace ariel{
 namespace fun{
 
     Node* insert(int,Node*);
+    void display(Node*,int);
 
 }

@@ -2,7 +2,8 @@ class Node
 {  
     public: 
     int data;  
-    Node* left, *right;  
+    Node* left;
+    Node* right;  
       
     /* Constructor that allocates a new node with the  
     given data and NULL left and right pointers. */
@@ -12,5 +13,6 @@ class Node
         this->right = NULL; 
     } 
 }; 
-    
-    
+
+
+  }
