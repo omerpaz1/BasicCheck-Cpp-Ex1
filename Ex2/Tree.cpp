@@ -6,23 +6,25 @@ using namespace ariel;
     Node* t;
 
     void Tree::insert(int x){
-    Node* temp = add(x,t);
+    Node* temp = fun::insert(x,t);
      }
 
 ////// private methods ///////
-        Node* add(int x, Node* t){
+        Node* fun::insert(int x, Node* t){
             if(t == NULL)
         {
             t = new Node(x);
+            cout << t->data;
             return t;
         }
         if(t->data == x){
             /// throw exeption
         }
         else if(x < t->data)
-            t->left = add(x, t->left);
+            t->left = fun::insert(x, t->left);
+
         else if(x > t->data)
-            t->right = add(x, t->right);
+            t->right = fun::insert(x, t->right);
     
         return t;
         }
@@ -36,7 +38,5 @@ int main(){
     t.insert(3);  
     t.insert(8);
 
-
-    
     return 0;
-};
+}

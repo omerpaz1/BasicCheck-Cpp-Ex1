@@ -1,7 +1,6 @@
 #include <iostream>
 #include "Node.hpp"
 using namespace std;
-#define COUNT 10
 
 namespace ariel{
 
@@ -10,12 +9,13 @@ namespace ariel{
         //Tree();
         void insert(int);
 
-
-
 //////////// Private Methods \\\\\\\\\\\
-
     private:
 
     };
+}
+namespace fun{
+
+    Node* insert(int,Node*);
 
 }
