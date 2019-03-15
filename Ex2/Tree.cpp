@@ -5,15 +5,16 @@
 using namespace std;
 using namespace ariel;
 
+    Tree::Tree(){
+    }
 
-
-    Node* t;
+    Node* root;
 
     void Tree::insert(int x){
-    t = fun::insert(x,t);
+    root = fun::insert(x,root);
      }
     void Tree::disp() { 
-    fun::display(t, 10);
+    fun::display(root, 10);
     }
 
 ////// private methods ///////
@@ -37,24 +38,24 @@ using namespace ariel;
 }
 
 // insert function 
-        Node* fun::insert(int x, Node* t){
+        Node* fun::insert(int x, Node* p){
 
-            if(t == NULL)
+            if(p == NULL)
         {
-            t = new Node;
-            t->data = x;
-            t->left = t->right = NULL;
+            p = new Node;
+            p->data = x;
+            p->left = p->right = NULL;
         }
 
-        else if(x < t->data){
-            t->left = fun::insert(x, t->left);
+        else if(x < p->data){
+            p->left = fun::insert(x, p->left);
 
         }
 
-        if(x > t->data)
-            t->right = fun::insert(x, t->right);
+        if(x > p->data)
+            p->right = fun::insert(x, p->right);
     
-        return t;
+        return p;
         }
 
 ///////// end ////////////

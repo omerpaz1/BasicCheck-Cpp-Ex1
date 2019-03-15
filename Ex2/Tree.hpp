@@ -13,12 +13,9 @@ namespace ariel{
 
     class Tree{
         public:
-        //Tree();
+        Tree();
         void insert(int);
         void disp();
-
-//////////// Private Methods \\\\\\\\\\\
-    private:
 
     };
 }
