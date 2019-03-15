@@ -9,22 +9,12 @@ namespace ariel{
         public:
         //Tree();
         void insert(int);
-        void printTree();
 
 
 
 //////////// Private Methods \\\\\\\\\\\
 
     private:
-    void printTree(Node* t){
-    if(!t) return;
-
-    if(t->left)  printTree(t->left);
-
-    printf("Cle = %d\n", t->data);
-
-    if(t->right) printTree(t->right);
-    }
 
     };
 

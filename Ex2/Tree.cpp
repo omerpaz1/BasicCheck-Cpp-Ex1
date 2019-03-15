@@ -6,12 +6,11 @@ using namespace ariel;
     Node* t;
 
     void Tree::insert(int x){
-    Node* temp = insert(x,t);
-    cout << temp->data;
+    Node* temp = add(x,t);
      }
 
 ////// private methods ///////
-        Node* insert(int x, Node* t){
+        Node* add(int x, Node* t){
             if(t == NULL)
         {
             t = new Node(x);
@@ -21,9 +20,9 @@ using namespace ariel;
             /// throw exeption
         }
         else if(x < t->data)
-            t->left = insert(x, t->left);
+            t->left = add(x, t->left);
         else if(x > t->data)
-            t->right = insert(x, t->right);
+            t->right = add(x, t->right);
     
         return t;
         }
