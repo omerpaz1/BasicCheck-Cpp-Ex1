@@ -37,7 +37,7 @@ namespace fun{
 	int left(int x ,Node* myroot);
 	int size(Node* myroot);
 	Node* find(Node* t, int x);
-	Node* remove(int x, Node* t);
+	Node* remove(Node* t,int x);
 	Node* makeEmpty(Node*);
     Node* findMin(Node* t);
 

@@ -58,8 +58,11 @@ using namespace ariel;
 
 	bool Tree::remove(int x)
 	{
-		Node* temp = fun::remove(x, myroot);
-		if(temp == NULL) return false;
+		Node* temp = fun::remove(myroot,x);
+		if(temp == NULL) {
+		throw::invalid_argument("the number is not exsit in the Tree");
+		return false;
+		}
 		else return true;
 	}
 
@@ -98,32 +101,36 @@ using namespace ariel;
         }
         return NULL;
     }
-    Node* fun::remove(int x, Node* t)
-{
-	Node* temp;
-	if(t == NULL)
-		return NULL;
-	else if(x < t->data)
-		t->left = fun::remove(x, t->left);
-		else if(x > t->data)
-			t->right = fun::remove(x, t->right);
-			else if(t->left && t->right)
-			{
-				temp = fun::findMin(t->right);
-				t->data = temp->data;
-				t->right = fun::remove(t->data, t->right);
-			}
-			else
-			{
-				temp = t;
-				if(t->left == NULL)
-					t = t->right;
-					else if(t->right == NULL)
-						t = t->left;
-						delete temp;
-			}
-
-	return t;
+ Node* fun::remove(Node* myroot, int data) {
+	if(myroot == NULL) return myroot; 
+	else if(data < myroot->data) myroot->left = fun::remove(myroot->left,data);
+	else if (data > myroot->data) myroot->right = fun::remove(myroot->right,data);
+	// Wohoo... I found you, Get ready to be deleted	
+	else {
+		// Case 1:  No child
+		if(myroot->left == NULL && myroot->right == NULL) { 
+			delete myroot;
+			myroot = NULL;
+		}
+		//Case 2: One child 
+		else if(myroot->left == NULL) {
+			struct Node *temp = myroot;
+			myroot = myroot->right;
+			delete temp;
+		}
+		else if(myroot->right == NULL) {
+			struct Node *temp = myroot;
+			myroot = myroot->left;
+			delete temp;
+		}
+		// case 3: 2 children
+		else { 
+			struct Node *temp = fun::findMin(myroot->right);
+			myroot->data = temp->data;
+			myroot->right = fun::remove(myroot->right,temp->data);
+		}
+	}
+	return myroot;
 }
 
 Node* fun::findMin(Node* t)
