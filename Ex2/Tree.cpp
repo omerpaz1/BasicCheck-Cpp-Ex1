@@ -4,7 +4,6 @@
 
 using namespace std;
 using namespace ariel;
-    //Node* root
 
 
                                             // constractor //
@@ -34,6 +33,7 @@ using namespace ariel;
 		}
 		else return temp->data;
 	}
+	
 	int Tree::left(int x){
 		return fun::left(x,myroot);
 	}
