@@ -13,15 +13,17 @@ namespace ariel{
 
 	class Tree{
 		public:
-			Tree();
+		    Node* myroot;
+
+	Tree();
 	~Tree();
 	void insert(int);
-	void disp();
+	void print();
 	int parent (int x);
 	int right(int x);
 	int left(int x);
 	int size();
-	int root_return();
+	int root();
 	bool contains(int x);
 	bool remove(int x);
 	};
@@ -30,10 +32,10 @@ namespace fun{
 
 	Node* insert(int,Node*);
 	void display(Node*,int);
-	Node* parent(Node* root, int n);
-	int right(int x ,Node* root);
-	int left(int x ,Node* root);
-	int size(Node* root);
+	Node* parent(Node* myroot, int n);
+	int right(int x ,Node* myroot);
+	int left(int x ,Node* myroot);
+	int size(Node* myroot);
 	Node* find(Node* t, int x);
 	Node* remove(int x, Node* t);
 	Node* makeEmpty(Node*);

@@ -4,33 +4,30 @@
 
 using namespace std;
 using namespace ariel;
-    Node* root;
+    //Node* root;
 
 
                                             // constractor //
     Tree::Tree()
     {
-    root = NULL;
+    Tree::myroot = NULL;
     }
                                             // distractor //   
     Tree::~Tree()
     {
-        root = fun::makeEmpty(root);
+        myroot = fun::makeEmpty(myroot);
     }
                                         
-
-
-
                                         ////// public methods ///////
 
  	void Tree::insert(int x){
-		root = fun::insert(x,root);
+		myroot = fun::insert(x,myroot);
 	}
-	void Tree::disp() { 
-		fun::display(root, 10);
+	void Tree::print() { 
+		fun::display(myroot, 10);
 	}
 	int Tree::parent (int x){
-		Node* temp =fun::parent(root,x);
+		Node* temp =fun::parent(myroot,x);
 		if (temp==NULL) {
 			cout <<"No Parent found"<<endl;
 			return -1;
@@ -38,23 +35,23 @@ using namespace ariel;
 		else return temp->data;
 	}
 	int Tree::left(int x){
-		return fun::left(x,root);
+		return fun::left(x,myroot);
 	}
 
 	int Tree::right(int x){
-		return fun::right(x,root);
+		return fun::right(x,myroot);
 	}
 	int Tree::size(){
-		return fun::size(root);
+		return fun::size(myroot);
 	}
 
-	int Tree::root_return(){
-		return root->data;
+	int Tree::root(){
+		return myroot->data;
 	}
 
 	bool Tree::contains(int x)
 	{
-		Node* temp = fun::find(root, x);
+		Node* temp = fun::find(myroot, x);
 		if(temp==NULL)return false;
 		else 
 			return true ;
@@ -62,7 +59,7 @@ using namespace ariel;
 
 	bool Tree::remove(int x)
 	{
-		Node* temp = fun::remove(x, root);
+		Node* temp = fun::remove(x, myroot);
 		if(temp == NULL) return false;
 		else return true;
 	}
@@ -162,68 +159,68 @@ Node* fun::insert(int x, Node* p){
 }
 
 
-Node* fun::parent(Node* root, int n) {
-	if (root == NULL)
+Node* fun::parent(Node* myroot, int n) {
+	if (myroot == NULL)
 		return NULL;
 	else
-		if ( (root->left!=NULL && root->left->data == n) || (root->right!=NULL) && (root->right->data == n)){
-			return root;
+		if ( (myroot->left!=NULL && myroot->left->data == n) || (myroot->right!=NULL) && (myroot->right->data == n)){
+			return myroot;
 		}
 		else {
-			Node* result= fun::parent(root->left, n);
+			Node* result= fun::parent(myroot->left, n);
 			if (result!=NULL){
 				return result;
 			}
 			else{
-				return fun::parent(root->right, n);
+				return fun::parent(myroot->right, n);
 			}
 		}
 
 }
-int fun::left(int x ,Node* root){
+int fun::left(int x ,Node* myroot){
 
-    if(x == root->data){
-       if(root->left == NULL){
+    if(x == myroot->data){
+       if(myroot->left == NULL){
            cout << "No Left Child for"<< x << endl;
            return -1;
        }
            else {
-           return root->left->data;
+           return myroot->left->data;
          }
     }
-    if(x < root->data){
-        fun::left(x,root->left);
+    if(x < myroot->data){
+        fun::left(x,myroot->left);
     }
-    else if(x > root->data){
-        fun::left(x,root->right);
+    else if(x > myroot->data){
+        fun::left(x,myroot->right);
     }
 }
 
-int fun::right(int x ,Node* root){
+int fun::right(int x ,Node* myroot){
 
-    if(x == root->data){
-       if(root->right == NULL){
+    if(x == myroot->data){
+       if(myroot->right == NULL){
            cout << "No Right Child for"<< x << endl;
            return -1;
        }
            else {
-           return root->right->data;
+           return myroot->right->data;
          }
     }
-    if(x < root->data){
-        fun::right(x,root->left);
+    if(x < myroot->data){
+        fun::right(x,myroot->left);
     }
-    else if(x > root->data){
-        fun::right(x,root->right);
+    else if(x > myroot->data){
+        fun::right(x,myroot->right);
     }
 }
 
-int fun::size(Node* root)  
+int fun::size(Node* myroot)  
 {  
-	if (root == NULL)  
+	if (myroot == NULL)  
 		return 0;  
 	else
-		return(fun::size(root->left) + 1 + fun::size(root->right));  
+		return(fun::size(myroot->left) + 1 + fun::size(myroot->right));  
 }
 
 Node* fun::find(Node* t, int x)
@@ -245,25 +242,3 @@ Node* fun::find(Node* t, int x)
 
                                         ////// end  private methods ///////
 
-
-int main(){
-    Tree t;
-
-    t.insert(5);
-    t.insert(3);  
-    t.insert(8);
-    t.insert(4);
-    t.insert(2);
-
-
-    t.disp();
-    t.size();
-    t.remove(3);
-    t.disp();
-    cout <<"left of 4 is: " << t.left(4)<<endl;
-    cout <<"size is: " << t.size()<<endl;
-    cout <<"right of 4 is: " << t.right(4)<<endl;
-
-
-    return 0;
-}
