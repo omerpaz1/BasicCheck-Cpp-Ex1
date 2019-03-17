@@ -4,7 +4,7 @@
 
 using namespace std;
 using namespace ariel;
-    //Node* root;
+    //Node* root
 
 
                                             // constractor //
@@ -145,7 +145,7 @@ Node* fun::insert(int x, Node* p){
 		p->data = x;
 		p->left = p->right = NULL;
 	}
-	if(p->data == x){
+	else if (p->data == x){
 	throw invalid_argument("This numer is allready in the Tree");
 
 	}
