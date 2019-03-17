@@ -24,6 +24,7 @@ int main() {
     threetree.insert(5);
     threetree.insert(7);
     threetree.insert(3);
+    threetree.parent(4);
     
     
 

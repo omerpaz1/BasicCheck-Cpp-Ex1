@@ -28,12 +28,11 @@ using namespace ariel;
 	int Tree::parent (int x){
 		Node* temp =fun::parent(myroot,x);
 		if (temp==NULL) {
-			cout <<"No Parent found"<<endl;
+			throw::invalid_argument("No Parent found");
 			return -1;
 		}
 		else return temp->data;
 	}
-	
 	int Tree::left(int x){
 		return fun::left(x,myroot);
 	}
@@ -160,10 +159,10 @@ Node* fun::insert(int x, Node* p){
 
 
 Node* fun::parent(Node* myroot, int n) {
-	if (myroot == NULL)
+	if (myroot == NULL){
 		return NULL;
-	else
-		if ( (myroot->left!=NULL && myroot->left->data == n) || (myroot->right!=NULL) && (myroot->right->data == n)){
+	}
+	else if ( (myroot->left!=NULL && myroot->left->data == n) || (myroot->right!=NULL) && (myroot->right->data == n)){
 			return myroot;
 		}
 		else {
