@@ -12,11 +12,10 @@ struct Node
 namespace ariel{
 
 	class Tree{
-		public:
-		    Node* myroot;
+	public:
+	Node* myroot;
 
 	Tree();
-	~Tree();
 	void insert(int);
 	void print();
 	int parent (int x);
@@ -26,6 +25,7 @@ namespace ariel{
 	int root();
 	bool contains(int x);
 	bool remove(int x);
+	~Tree();
 	};
 }
 namespace fun{

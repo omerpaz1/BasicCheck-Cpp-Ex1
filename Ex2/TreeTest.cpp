@@ -33,7 +33,7 @@ int main() {
   .CHECK_EQUAL (threetree.parent(7), 5)
   .CHECK_EQUAL (threetree.left(5), 3)
   .CHECK_EQUAL (threetree.right(5), 7)
-  .CHECK_THROWS(threetree.insert(3))
+  .CHECK_THROWS(threet1ree.insert(3))
   .CHECK_OK    (threetree.print())
   
   .print();

@@ -69,6 +69,8 @@ using namespace ariel;
 
                                         ////// private methods ///////
 
+	// priting function that took from interent.									
+
     void fun::display(Node* p, int indent) {
 
     if (p != NULL) {
@@ -90,9 +92,7 @@ using namespace ariel;
 // empty the tree //
  Node* fun::makeEmpty(Node* t)
     {
-        if(t == NULL)
-            return NULL;
-        {
+        if(t != NULL){
             fun::makeEmpty(t->left);
             fun::makeEmpty(t->right);
             delete t;
@@ -140,18 +140,18 @@ Node* fun::findMin(Node* t)
 
 Node* fun::insert(int x, Node* p){
 
-	if(p == NULL)
-	{
+	if(p == NULL){
 		p = new Node;
 		p->data = x;
 		p->left = p->right = NULL;
 	}
-
-	else if(x < p->data){
-		p->left = fun::insert(x, p->left);
+	if(p->data == x){
+	throw invalid_argument("This numer is allready in the Tree");
 
 	}
-
+	else if(x < p->data){
+		p->left = fun::insert(x, p->left);
+	}
 	if(x > p->data)
 		p->right = fun::insert(x, p->right);
 
