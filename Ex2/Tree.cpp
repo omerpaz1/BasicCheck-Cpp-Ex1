@@ -41,7 +41,13 @@ using namespace ariel;
 		return fun::right(x,myroot);
 	}
 	int Tree::size(){
+		int ans = fun::size(myroot);
+		if(myroot == NULL){
+			return 0;
+		}else{
 		return fun::size(myroot);
+
+		}
 	}
 
 	int Tree::root(){
@@ -58,13 +64,15 @@ using namespace ariel;
 
 	bool Tree::remove(int x)
 	{
+		if((Tree::contains(x) == false) || (myroot==NULL)){
+			throw::invalid_argument("BAD");
+			return false;
+		}else{
 		Node* temp = fun::remove(myroot,x);
-		if(temp == NULL) {
-		throw::invalid_argument("the number is not exsit in the Tree");
-		return false;
-		}
-		else return true;
+	return true;
+	
 	}
+}
 
                                         ////// end public methods ///////
 
@@ -117,6 +125,7 @@ using namespace ariel;
 			struct Node *temp = myroot;
 			myroot = myroot->right;
 			delete temp;
+		
 		}
 		else if(myroot->right == NULL) {
 			struct Node *temp = myroot;
@@ -223,7 +232,7 @@ int fun::right(int x ,Node* myroot){
 
 int fun::size(Node* myroot)  
 {  
-	if (myroot == NULL)  
+	if (myroot == NULL || myroot->data == 0)  
 		return 0;  
 	else
 		return(fun::size(myroot->left) + 1 + fun::size(myroot->right));  
