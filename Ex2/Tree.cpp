@@ -196,8 +196,7 @@ int fun::left(int x ,Node* myroot){
 
     if(x == myroot->data){
        if(myroot->left == NULL){
-           cout << "No Left Child for"<< x << endl;
-           return -1;
+		   throw::invalid_argument("No left chlid exist");
        }
            else {
            return myroot->left->data;
@@ -215,14 +214,15 @@ int fun::right(int x ,Node* myroot){
 
     if(x == myroot->data){
        if(myroot->right == NULL){
-           cout << "No Right Child for"<< x << endl;
-           return -1;
+		   throw::invalid_argument("No right chlid exist");
        }
-           else {
+        else {
+			cout << "ans is: " <<myroot->right->data << endl;
            return myroot->right->data;
          }
     }
     if(x < myroot->data){
+		cout << "the left is: " << myroot->left->data << endl;
         fun::right(x,myroot->left);
     }
     else if(x > myroot->data){
