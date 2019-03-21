@@ -26,7 +26,7 @@ int main() {
   .CHECK_OK    (emptytree.remove(5))
   .CHECK_THROWS(emptytree.remove(5))
   .CHECK_EQUAL (emptytree.size() ,0)
-  
+
   .CHECK_EQUAL (threetree.size(), 3)
   .CHECK_EQUAL (threetree.root(), 5)
   .CHECK_EQUAL (threetree.parent(3), 5)
